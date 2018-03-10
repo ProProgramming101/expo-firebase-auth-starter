@@ -16,30 +16,22 @@ export default class LoginScreen extends React.Component {
 
     onLoginPress = () => {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => { }, (error) => {
-                Alert.alert(error.message);
-            });
+            .then(() => { }, (error) => { Alert.alert(error.message); });
     }
 
     onCreateAccountPress = () => {
         var navActions = NavigationActions.reset({
             index: 0,
-            actions: [
-                NavigationActions.navigate({routeName: "Signup"})
-            ]
+            actions: [NavigationActions.navigate({routeName: "Signup"})]
         });
-
         this.props.navigation.dispatch(navActions);
     }
 
     onForgotPasswordPress = () => {
         var navActions = NavigationActions.reset({
             index: 0,
-            actions: [
-                NavigationActions.navigate({routeName: "ForgotPassword"})
-            ]
+            actions: [NavigationActions.navigate({routeName: "ForgotPassword"})]
         });
-
         this.props.navigation.dispatch(navActions);
     }
 

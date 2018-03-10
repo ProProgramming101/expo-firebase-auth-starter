@@ -22,19 +22,14 @@ export default class SignupScreen extends React.Component {
         }
 
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => { }, (error) => {
-                Alert.alert(error.message);
-            });
+            .then(() => { }, (error) => { Alert.alert(error.message); });
     }
 
     onBackToLoginPress = () => {
         var navActions = NavigationActions.reset({
             index: 0,
-            actions: [
-                NavigationActions.navigate({routeName: "Login"})
-            ]
+            actions: [NavigationActions.navigate({routeName: "Login"})]
         });
-
         this.props.navigation.dispatch(navActions);
     }
 
